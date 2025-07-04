@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #2e3cc9, #4b6ed6);
+  background-size: 200% 200%;
+  animation: gradientFlow 15s ease infinite;
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: white;
+  color: #333;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  height: 32px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  font-weight: 500;
+}
+
+.login-btn {
+  background: #0b74de;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.main-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.big-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.button-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.button-list button {
+  padding: 10px 20px;
+  background: white;
+  color: #2e3cc9;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.button-list button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button {
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  border-radius: 40px;
+  border: none;
+  background: white;
+  color: #2e3cc9;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cta-button:hover {
+  background: #f5f5f5;
+}
+
+.note {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
