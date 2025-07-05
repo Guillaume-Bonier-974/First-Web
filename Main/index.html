@@ -3,43 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Wix Like</title>
-  <link rel="stylesheet" href="../Main/style.css" />
+  <title>First Web Guillaume bonier</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Wix.com_website_logo.svg" alt="Logo Wix" class="logo" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Wix.com_website_logo.svg" alt="Logo" class="logo" />
     <nav class="nav">
       <ul>
-        <li>Produit</li>
-        <li>Solutions</li>
-        <li>Ressources</li>
-        <li>Prix</li>
-        <li>Wix Studio</li>
-        <li>Entreprises</li>
+        <li><a href="#">Formations</a></li>
+        <li><a href="#">Experience professionnel</a></li>
+        <li><a href="#">Perso</a></li>
+        <li><a href="#">Coordonées</a></li>
       </ul>
     </nav>
-    <button class="login-btn">Se connecter</button>
+    <button class="login-btn" onclick="openPopup()">Se connecter</button>
   </header>
 
   <main class="main-section">
-    <h1 class="big-title">Créer un site internet<br>sans limites</h1>
-    <p class="subtitle">Quel type de site souhaitez-vous créer ?</p>
+    <h1 class="big-title">Que voulez vous regardez<br>sur mon site</h1>
+    <p class="subtitle">Qu'es-ce que je fais ?</p>
 
     <div class="button-list">
-      <button>Services</button>
-      <button>Boutique en ligne</button>
-      <button>Portfolio</button>
-      <button>Blog</button>
-      <button>Événement</button>
-      <button>Consultant(e)</button>
-      <button>Restaurant</button>
-      <button>Autre</button>
+      <button><a href="#">First Python</a></button>
+      <button><a href="#">League of Legend</a></button>
+      <button><a href="#">Playlist</a></button>
+
     </div>
 
-    <!-- <button class="cta-button">Créer un site internet</button> -->
-     <a href="../Page2/2page.html" class="cta-button">Créer un site internet</a>
-    <p class="note">Essayez Wix gratuit. Aucune carte bancaire requise.</p>
+    <a href="../Page2/2page.html" class="cta-button">Plus de Projet ?</a>
+    <p class="note">N'hesité pas ! contacter moi directment !</p>
   </main>
+
+  <div class="popup-container">
+    <div class="overlay" id="popup" style="display: none;">
+      <div class="popup">
+        <span class="close-btn" onclick="closePopup()">×</span>
+        <div class="location-icon">📍</div>
+        <h2>Bienvenue dans mon Site !</h2>
+        <p><strong>Qui etes vous ?</strong></p>
+        <p>Connecter vous !</p>
+        <input type="text" placeholder="Identifiant">
+        <input type="text" placeholder="Mot de passe">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closePopup();
+      }
+    });
+  </script>
 </body>
 </html>
