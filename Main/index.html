@@ -3,53 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>First Web Guillaume bonier</title>
+  <title>First Web Guillaume Bonier</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
     <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Wix.com_website_logo.svg" alt="Logo" class="logo" />
+    
     <nav class="nav">
       <ul>
-        <li><a href="#">Formations</a></li>
-        <li><a href="#">Experience professionnel</a></li>
-        <li><a href="#">Perso</a></li>
-        <li><a href="#">Coordonées</a></li>
+        <li><button onclick="openNavPopup('popup-formations')">Formations</button></li>
+        <li><button onclick="openNavPopup('popup-experiences')">Expériences professionnelles</button></li>
+        <li><button onclick="openNavPopup('popup-perso')">Perso</button></li>
+        <li><button onclick="openNavPopup('popup-contact')">Contact</button></li>
       </ul>
     </nav>
+
     <button class="login-btn" onclick="openPopup()">Se connecter</button>
   </header>
 
   <main class="main-section">
-    <h1 class="big-title">Que voulez vous regardez<br>sur mon site</h1>
-    <p class="subtitle">Qu'es-ce que je fais ?</p>
+    <h1 class="big-title">Que voulez-vous regarder<br>sur mon site ?</h1>
+    <p class="subtitle">Qu'est-ce que je fais ?</p>
 
     <div class="button-list">
-      <button><a href="#">First Python</a></button>
-      <button><a href="#">League of Legend</a></button>
-      <button><a href="#">Playlist</a></button>
-
+      <a href="#" class="button-link">First Python</a>
+      <a href="#" class="button-link">League of Legends</a>
+      <a href="#" class="button-link">Playlist</a>
     </div>
 
-    <a href="../Page2/2page.html" class="cta-button">Plus de Projet ?</a>
-    <p class="note">N'hesité pas ! contacter moi directment !</p>
+    <a href="../Page2/2page.html" class="cta-button">PLUS DE PROJETS ?</a>
+    <p class="note">
+    N'hésitez pas !
+    <a href="#" onclick="openNavPopup('popup-contact')">Contactez-moi directement !</a>
+    </p>
   </main>
 
+  <!-- Popup Connexion -->
   <div class="popup-container">
-    <div class="overlay" id="popup" style="display: none;">
+    <div class="overlay" id="popup">
       <div class="popup">
         <span class="close-btn" onclick="closePopup()">×</span>
         <div class="location-icon">📍</div>
-        <h2>Bienvenue dans mon Site !</h2>
-        <p><strong>Qui etes vous ?</strong></p>
-        <p>Connecter vous !</p>
-        <input type="text" placeholder="Identifiant">
-        <input type="text" placeholder="Mot de passe">
+        <h2>Bienvenue sur mon site !</h2>
+        <p><strong>Qui êtes-vous ?</strong></p>
+        <p>Connectez-vous !</p>
+        <input type="text" placeholder="Identifiant" aria-label="Identifiant">
+        <input type="password" placeholder="Mot de passe" aria-label="Mot de passe">
       </div>
     </div>
   </div>
 
+  <!-- Popups Nav -->
+  <div class="overlay" id="popup-formations">
+    <div class="popup">
+      <span class="close-btn" onclick="closeNavPopup('popup-formations')">×</span>
+      <h2>Formations</h2>
+      <p>Voici mes formations : DUT, école de commerce, réorientation en ingénierie digitale...</p>
+    </div>
+  </div>
+
+  <div class="overlay" id="popup-experiences">
+    <div class="popup">
+      <span class="close-btn" onclick="closeNavPopup('popup-experiences')">×</span>
+      <h2>Expériences professionnelles</h2>
+      <p>Stages, alternances, freelancing, projets en équipe...</p>
+    </div>
+  </div>
+
+  <div class="overlay" id="popup-perso">
+    <div class="popup">
+      <span class="close-btn" onclick="closeNavPopup('popup-perso')">×</span>
+      <h2>Perso</h2>
+      <p>Mes passions : jeux vidéo, musique, code, sport...</p>
+    </div>
+  </div>
+
+  <div class="overlay" id="popup-contact">
+    <div class="popup">
+      <span class="close-btn" onclick="closeNavPopup('popup-contact')">×</span>
+      <h2>Contact</h2>
+      <p>Tu peux me joindre par mail ou via mes réseaux sociaux.</p>
+    </div>
+  </div>
+
   <script>
+    // Popup Connexion
     function openPopup() {
       document.getElementById("popup").style.display = "flex";
     }
@@ -58,9 +97,21 @@
       document.getElementById("popup").style.display = "none";
     }
 
+    // Popups NAV
+    function openNavPopup(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+
+    function closeNavPopup(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    // Fermer tous les popups avec "Escape"
     document.addEventListener("keydown", function(event) {
       if (event.key === "Escape") {
-        closePopup();
+        document.getElementById("popup").style.display = "none";
+        const navPopups = document.querySelectorAll(".overlay");
+        navPopups.forEach(p => p.style.display = "none");
       }
     });
   </script>
